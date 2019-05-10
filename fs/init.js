@@ -93,7 +93,7 @@ if (btn >= 0) {
     }
     // AWS is handled as plain MQTT since it allows arbitrary topics.
     if (AWS.isConnected() || (MQTT.isConnected() && sendMQTT)) {
-      let topic = 'devices/' + Cfg.get('device.id') + '/events';
+      let topic = 'aiot/' + Cfg.get('device.id') + '/events';
       print('== Publishing to ' + topic + ':', message);
       MQTT.pub(topic, message, 0 /* QoS */);
     } else if (sendMQTT) {
